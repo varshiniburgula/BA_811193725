@@ -1,0 +1,46 @@
+---
+title: "BA-Assignment.1"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+
+
+```{r}
+
+#calling the ISLR package which has already been installed using install.packages(ISLR)
+library(ISLR)
+
+#printing the summarised version of carseats dataset
+summary(Carseats)
+
+#finding out the number of rows in the dataset
+nrow(Carseats)
+
+#calculating the maximum value of the advertising attribute
+max(Carseats$Advertising)
+
+#finding the inter-quartile range for the price attribute
+IQR(Carseats$Price)
+
+#plotting sales against price
+library(ggplot2)
+ggplot(Carseats)+
+  aes(
+    x = Price,
+    y = Sales
+  )+
+  geom_point(shape="circle",size=1.2, colour="#112446")+
+  theme_minimal()
+#Observation: The two variables i.e. x=Price and y=sales have a negative association as they have a inverse relationship, As the price increases the sales decrease.
+
+#calculating the correlation between two attributes i.e. sales and price
+cor(Carseats$Sales,Carseats$Price) 
+#Observation: The two attributes sales and price have a negative or inverse correlation as the correlation value between them is -0.4449507 
+
+```
+
+
